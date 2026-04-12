@@ -746,26 +746,24 @@
             border-radius: 4px;
         }
 
-        .blog-extra-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 0.75rem;
-        }
-
-        .blog-extra-link {
+        .blog-card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: var(--text-muted);
             text-decoration: none;
             padding: 3px 10px;
             border: 1px solid var(--border);
             border-radius: 4px;
             transition: all 0.3s;
+            margin-left: 0.5rem;
         }
 
-        .blog-extra-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+        .blog-card-badge:hover {
+            color: #ff0000;
+            border-color: #ff0000;
         }
 
         /* ===== SKILLS ===== */
@@ -1601,10 +1599,7 @@
                     <p class="blog-card-summary">How intelligent keyframe extraction with two-layer detection (text similarity + pixel change) reduces API costs from $2,700 to $340/month for processing 1,000 videos.</p>
                     <div class="blog-card-footer">
                         <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
-                    <div class="blog-extra-links" onclick="event.stopPropagation()">
-                        <a href="https://youtu.be/i3pHc9dLT6c" target="_blank" class="blog-extra-link" onclick="event.stopPropagation()">YouTube Demo</a>
+                        <span style="display:flex;align-items:center"><a href="https://youtu.be/i3pHc9dLT6c" target="_blank" class="blog-card-badge" onclick="event.stopPropagation()">&#9654; Demo</a><span class="blog-card-platform">QED42</span></span>
                     </div>
                 </a>
 
@@ -1614,10 +1609,7 @@
                     <p class="blog-card-summary">Built a reinforcement learning system to personalize small LLM outputs without fine-tuning. Individual neural networks learn user preferences, achieving 70% alignment within 15 queries.</p>
                     <div class="blog-card-footer">
                         <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
-                    <div class="blog-extra-links" onclick="event.stopPropagation()">
-                        <a href="https://youtu.be/TuipHF0DGDM" target="_blank" class="blog-extra-link" onclick="event.stopPropagation()">YouTube Demo</a>
+                        <span style="display:flex;align-items:center"><a href="https://youtu.be/TuipHF0DGDM" target="_blank" class="blog-card-badge" onclick="event.stopPropagation()">&#9654; Demo</a><span class="blog-card-platform">QED42</span></span>
                     </div>
                 </a>
 
@@ -1886,7 +1878,7 @@
                                 <div class="contact-link-value">Download / View Resume</div>
                             </div>
                         </a>
-                        <a href="mailto:pratikbhande@gmail.com" class="contact-link">
+                        <a href="mailto:pratikbhande2@gmail.com" class="contact-link">
                             <div class="contact-link-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                             </div>
