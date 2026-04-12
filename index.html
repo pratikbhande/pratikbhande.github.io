@@ -42,7 +42,6 @@
             min-height: 100vh;
         }
 
-        /* ===== CANVAS BACKGROUND ===== */
         #neural-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -73,6 +72,7 @@
             color: var(--accent);
             letter-spacing: -0.5px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .nav-logo span { color: var(--text-muted); }
@@ -101,9 +101,7 @@
 
         .nav-tab:hover { color: var(--text-primary); }
 
-        .nav-tab.active {
-            color: var(--accent);
-        }
+        .nav-tab.active { color: var(--accent); }
 
         .nav-tab.active::after {
             content: '';
@@ -122,13 +120,13 @@
             background: none;
             border: 1px solid var(--border);
             color: var(--text-primary);
-            padding: 8px;
+            padding: 8px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 1.2rem;
         }
 
-        /* ===== MAIN CONTENT ===== */
+        /* ===== MAIN ===== */
         .main-content {
             position: relative;
             z-index: 1;
@@ -153,9 +151,7 @@
             padding: 4rem 2rem;
         }
 
-        .section-header {
-            margin-bottom: 3rem;
-        }
+        .section-header { margin-bottom: 3rem; }
 
         .section-label {
             font-family: var(--font-mono);
@@ -183,7 +179,7 @@
             max-width: 600px;
         }
 
-        /* ===== HOME / HERO ===== */
+        /* ===== HERO ===== */
         .hero {
             min-height: calc(100vh - 64px);
             display: flex;
@@ -269,6 +265,7 @@
             display: flex;
             gap: 2.5rem;
             margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .hero-stat-value {
@@ -377,6 +374,271 @@
             z-index: 0;
         }
 
+        /* ===== HOME EXPLORE SECTIONS ===== */
+        .home-explore {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .explore-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .explore-divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .explore-divider-text {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
+
+        .explore-divider-line.right {
+            background: linear-gradient(90deg, transparent, var(--accent));
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .explore-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .explore-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .explore-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .explore-card:hover::after { opacity: 1; }
+
+        .explore-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .explore-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .explore-card-count {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .explore-card-subtitle {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .explore-card-arrow {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-top: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(5px);
+        }
+
+        .explore-card:hover .explore-card-arrow {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Featured Section */
+        .featured-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .featured-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+        }
+
+        .featured-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.12);
+        }
+
+        .featured-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .featured-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .featured-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .featured-impact {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent);
+            padding: 0.4rem 0.75rem;
+            background: rgba(0, 212, 255, 0.06);
+            border-left: 2px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 1rem;
+        }
+
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .featured-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.03);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .featured-cta {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Skills Marquee */
+        .skills-marquee-wrapper {
+            overflow: hidden;
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            position: relative;
+        }
+
+        .skills-marquee-wrapper::before,
+        .skills-marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .skills-marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--bg-primary), transparent);
+        }
+
+        .skills-marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent, var(--bg-primary));
+        }
+
+        .skills-marquee {
+            display: flex;
+            gap: 0.75rem;
+            animation: marquee 40s linear infinite;
+            width: max-content;
+        }
+
+        .skills-marquee:hover { animation-play-state: paused; }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            padding: 6px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            white-space: nowrap;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .marquee-item:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
         /* ===== ABOUT ===== */
         .about-grid {
             display: grid;
@@ -391,9 +653,7 @@
             font-size: 0.95rem;
         }
 
-        .about-text strong {
-            color: var(--text-primary);
-        }
+        .about-text strong { color: var(--text-primary); }
 
         .about-highlights {
             display: flex;
@@ -415,24 +675,11 @@
             transform: translateX(5px);
         }
 
-        .highlight-card-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
+        .highlight-card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .highlight-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .highlight-card-desc { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5; }
 
-        .highlight-card-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .highlight-card-desc {
-            color: var(--text-secondary);
-            font-size: 0.82rem;
-            line-height: 1.5;
-        }
-
-        /* ===== EXPERIENCE TIMELINE ===== */
+        /* ===== TIMELINE ===== */
         .timeline {
             position: relative;
             margin-top: 3rem;
@@ -470,8 +717,6 @@
         }
 
         .timeline-item.current::before {
-            background: var(--accent);
-            box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent-glow);
             animation: pulse-dot 2s infinite;
         }
 
@@ -488,17 +733,8 @@
             margin-bottom: 0.25rem;
         }
 
-        .timeline-company {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.15rem;
-        }
-
-        .timeline-role {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
+        .timeline-company { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.15rem; }
+        .timeline-role { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
 
         .timeline-desc {
             color: var(--text-muted);
@@ -506,10 +742,7 @@
             line-height: 1.6;
         }
 
-        .timeline-desc ul {
-            list-style: none;
-            padding: 0;
-        }
+        .timeline-desc ul { list-style: none; padding: 0; }
 
         .timeline-desc ul li {
             position: relative;
@@ -606,20 +839,10 @@
             border-radius: 20px;
         }
 
-        .project-card-type.enterprise {
-            color: var(--purple);
-            border-color: var(--purple);
-        }
+        .project-card-type.enterprise { color: var(--purple); border-color: var(--purple); }
+        .project-card-type.poc { color: #ff9f43; border-color: #ff9f43; }
 
-        .project-card-type.poc {
-            color: #ff9f43;
-            border-color: #ff9f43;
-        }
-
-        .project-card-links {
-            display: flex;
-            gap: 0.5rem;
-        }
+        .project-card-links { display: flex; gap: 0.5rem; }
 
         .project-card-link {
             color: var(--text-muted);
@@ -633,12 +856,7 @@
 
         .project-card-link:hover { color: var(--accent); }
 
-        .project-card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
+        .project-card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; }
 
         .project-card-desc {
             color: var(--text-secondary);
@@ -658,11 +876,7 @@
             border-left: 2px solid var(--accent);
         }
 
-        .project-card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
+        .project-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
         .project-tag {
             font-family: var(--font-mono);
@@ -707,12 +921,7 @@
             margin-bottom: 0.75rem;
         }
 
-        .blog-card-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
+        .blog-card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4; }
 
         .blog-card-summary {
             color: var(--text-secondary);
@@ -758,13 +967,10 @@
             border: 1px solid var(--border);
             border-radius: 4px;
             transition: all 0.3s;
-            margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
 
-        .blog-card-badge:hover {
-            color: #ff0000;
-            border-color: #ff0000;
-        }
+        .blog-card-badge:hover { color: #ff0000; border-color: #ff0000; }
 
         /* ===== SKILLS ===== */
         .skills-grid {
@@ -786,23 +992,10 @@
             box-shadow: 0 0 25px var(--accent-glow);
         }
 
-        .skill-category-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
+        .skill-category-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .skill-category-name { font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent); }
 
-        .skill-category-name {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
+        .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
         .skill-item {
             font-family: var(--font-mono);
@@ -847,18 +1040,9 @@
             background-clip: text;
         }
 
-        .contact-text p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
+        .contact-text p { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
 
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+        .contact-links { display: flex; flex-direction: column; gap: 1rem; }
 
         .contact-link {
             display: flex;
@@ -891,17 +1075,8 @@
             flex-shrink: 0;
         }
 
-        .contact-link-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-link-value {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
+        .contact-link-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .contact-link-value { font-weight: 600; font-size: 0.95rem; }
 
         .contact-terminal {
             background: var(--bg-card);
@@ -919,11 +1094,7 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .terminal-dot {
-            width: 10px; height: 10px;
-            border-radius: 50%;
-        }
-
+        .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
         .terminal-dot.red { background: #ff5f56; }
         .terminal-dot.yellow { background: #ffbd2e; }
         .terminal-dot.green { background: #27c93f; }
@@ -942,21 +1113,10 @@
             line-height: 2;
         }
 
-        .terminal-line .prompt {
-            color: var(--accent);
-        }
-
-        .terminal-line .command {
-            color: var(--text-primary);
-        }
-
-        .terminal-line .output {
-            color: var(--text-secondary);
-        }
-
-        .terminal-line .success {
-            color: #27c93f;
-        }
+        .terminal-line .prompt { color: var(--accent); }
+        .terminal-line .command { color: var(--text-primary); }
+        .terminal-line .output { color: var(--text-secondary); }
+        .terminal-line .success { color: #27c93f; }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -969,10 +1129,7 @@
             z-index: 1;
         }
 
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        .footer a { color: var(--accent); text-decoration: none; }
 
         /* ===== GRID OVERLAY ===== */
         .grid-overlay {
@@ -989,19 +1146,25 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
+            .navbar { padding: 0 1rem; }
+
             .hero-inner {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 2rem;
+                padding: 1.5rem;
             }
 
+            .hero-image-wrapper { order: -1; }
             .hero-name { font-size: 2.5rem; }
             .hero-stats { justify-content: center; }
             .hero-buttons { justify-content: center; }
             .hero-description { margin: 0 auto 2rem; }
-            .hero-image-frame { width: 280px; height: 320px; }
+            .hero-image-frame { width: 220px; height: 260px; }
             .hero-glow { display: none; }
 
+            .explore-grid { grid-template-columns: repeat(2, 1fr); }
+            .featured-row { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
@@ -1017,21 +1180,53 @@
                 background: rgba(5, 5, 8, 0.97);
                 backdrop-filter: blur(20px);
                 border-bottom: 1px solid var(--border);
-                padding: 1rem 0;
+                padding: 0.5rem 0;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             }
-            .nav-tab { height: auto; padding: 0.75rem 2rem; text-align: left; }
+            .nav-tab {
+                height: auto;
+                padding: 1rem 2rem;
+                text-align: left;
+                font-size: 0.95rem;
+                border-bottom: 1px solid rgba(255,255,255,0.03);
+            }
             .nav-tab.active::after { display: none; }
+            .nav-tab.active { background: rgba(0, 212, 255, 0.05); }
             .nav-mobile-toggle { display: block; }
+
+            .contact-text h2 { font-size: 1.8rem; }
+            .section-container { padding: 3rem 1.25rem; }
+            .home-explore { padding: 0 1.25rem 3rem; }
+
+            .terminal-body { font-size: 0.72rem; padding: 1rem; }
         }
 
         @media (max-width: 500px) {
             .hero-name { font-size: 2rem; }
+            .hero-title { font-size: 1.1rem; }
+            .hero-typewriter { font-size: 0.8rem; }
             .section-title { font-size: 1.6rem; }
             .hero-stats { gap: 1.5rem; }
-            .section-container { padding: 2.5rem 1.25rem; }
+            .hero-stat-value { font-size: 1.4rem; }
+            .hero-stat-label { font-size: 0.65rem; }
+            .hero-image-frame { width: 180px; height: 220px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; justify-content: center; max-width: 250px; }
+            .section-container { padding: 2rem 1rem; }
+            .home-explore { padding: 0 1rem 2rem; }
+            .explore-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .explore-card { padding: 1.25rem 1rem; }
+            .explore-card-count { font-size: 1.2rem; }
+            .explore-card-icon { font-size: 1.5rem; }
+            .project-card { padding: 1.25rem; }
+            .blog-card { padding: 1.25rem; }
+            .skill-category { padding: 1.25rem; }
+            .contact-link { padding: 1rem; }
+            .contact-link-icon { width: 36px; height: 36px; }
+            .timeline { padding-left: 1.5rem; }
+            .timeline-item { padding-left: 1.25rem; }
         }
 
-        /* ===== SCROLL ANIMATIONS ===== */
         .animate-in {
             opacity: 0;
             transform: translateY(30px);
@@ -1049,9 +1244,8 @@
 <canvas id="neural-canvas"></canvas>
 <div class="grid-overlay"></div>
 
-<!-- NAVIGATION -->
 <nav class="navbar">
-    <a href="#" class="nav-logo" onclick="switchTab('home')">PB<span>.dev</span></a>
+    <a class="nav-logo" onclick="switchTab('home')">PB<span>.dev</span></a>
     <div class="nav-tabs" id="navTabs">
         <button class="nav-tab active" data-tab="home">Home</button>
         <button class="nav-tab" data-tab="about">About</button>
@@ -1063,7 +1257,6 @@
     <button class="nav-mobile-toggle" id="mobileToggle" onclick="document.getElementById('navTabs').classList.toggle('open')">&#9776;</button>
 </nav>
 
-<!-- MAIN CONTENT -->
 <main class="main-content">
 
     <!-- ===== HOME ===== -->
@@ -1116,6 +1309,117 @@
                 </div>
             </div>
         </div>
+
+        <!-- EXPLORE SECTION - drives clicks to other tabs -->
+        <div class="home-explore">
+            <div class="explore-divider">
+                <div class="explore-divider-line"></div>
+                <span class="explore-divider-text">Explore My Work</span>
+                <div class="explore-divider-line right"></div>
+            </div>
+
+            <div class="explore-grid">
+                <div class="explore-card" onclick="switchTab('projects')">
+                    <div class="explore-card-icon">&#128640;</div>
+                    <div class="explore-card-count">15+</div>
+                    <div class="explore-card-title">Projects</div>
+                    <div class="explore-card-subtitle">Enterprise AI platforms, open-source tools & research</div>
+                    <div class="explore-card-arrow">Explore &rarr;</div>
+                </div>
+                <div class="explore-card" onclick="switchTab('blog')">
+                    <div class="explore-card-icon">&#128221;</div>
+                    <div class="explore-card-count">7</div>
+                    <div class="explore-card-title">Articles</div>
+                    <div class="explore-card-subtitle">Deep technical writing on RAG, agents & production AI</div>
+                    <div class="explore-card-arrow">Read &rarr;</div>
+                </div>
+                <div class="explore-card" onclick="switchTab('skills')">
+                    <div class="explore-card-icon">&#9889;</div>
+                    <div class="explore-card-count">50+</div>
+                    <div class="explore-card-title">Technologies</div>
+                    <div class="explore-card-subtitle">LLMs, RAG, Agentic AI, MLOps, Vector DBs & more</div>
+                    <div class="explore-card-arrow">View &rarr;</div>
+                </div>
+                <div class="explore-card" onclick="switchTab('about')">
+                    <div class="explore-card-icon">&#128188;</div>
+                    <div class="explore-card-count">4</div>
+                    <div class="explore-card-title">Companies</div>
+                    <div class="explore-card-subtitle">Full career timeline from intern to AI engineer</div>
+                    <div class="explore-card-arrow">About me &rarr;</div>
+                </div>
+            </div>
+
+            <!-- Featured highlights -->
+            <div class="featured-row">
+                <div class="featured-card" onclick="switchTab('projects')">
+                    <div class="featured-label">&#11088; Featured Project</div>
+                    <div class="featured-title">Smart Semantic Video RAG</div>
+                    <div class="featured-desc">Transforms videos into interactive knowledge bases with multimodal search. Intelligent keyframe extraction + graph-based retrieval delivers pinpoint-accurate timestamps.</div>
+                    <div class="featured-impact">81% cheaper than industry standard &mdash; $340 vs $2,700/month</div>
+                    <div class="featured-tags">
+                        <span class="featured-tag">Whisper</span>
+                        <span class="featured-tag">GPT-4o Vision</span>
+                        <span class="featured-tag">PageRank</span>
+                        <span class="featured-tag">ChromaDB</span>
+                    </div>
+                    <div class="featured-cta">View all projects &rarr;</div>
+                </div>
+                <div class="featured-card" onclick="switchTab('blog')">
+                    <div class="featured-label">&#128196; Latest Article</div>
+                    <div class="featured-title">Building a Video RAG System That's 81% Cheaper Than Industry Standard</div>
+                    <div class="featured-desc">How intelligent keyframe extraction with two-layer detection reduces API costs from $2,700 to $340/month for processing 1,000 videos.</div>
+                    <div class="featured-impact">Published March 2026 on QED42</div>
+                    <div class="featured-cta">Read all articles &rarr;</div>
+                </div>
+            </div>
+
+            <!-- Skills marquee -->
+            <div class="skills-marquee-wrapper">
+                <div class="skills-marquee" onclick="switchTab('skills')">
+                    <span class="marquee-item">GPT-4o</span>
+                    <span class="marquee-item">Claude</span>
+                    <span class="marquee-item">LangChain</span>
+                    <span class="marquee-item">LangGraph</span>
+                    <span class="marquee-item">RAG</span>
+                    <span class="marquee-item">Milvus</span>
+                    <span class="marquee-item">FastAPI</span>
+                    <span class="marquee-item">PyTorch</span>
+                    <span class="marquee-item">CrewAI</span>
+                    <span class="marquee-item">MCP</span>
+                    <span class="marquee-item">LoRA</span>
+                    <span class="marquee-item">OpenTelemetry</span>
+                    <span class="marquee-item">ChromaDB</span>
+                    <span class="marquee-item">ClickHouse</span>
+                    <span class="marquee-item">Docker</span>
+                    <span class="marquee-item">AWS</span>
+                    <span class="marquee-item">RAGAS</span>
+                    <span class="marquee-item">Pinecone</span>
+                    <span class="marquee-item">TensorFlow</span>
+                    <span class="marquee-item">HuggingFace</span>
+                    <!-- duplicate for seamless loop -->
+                    <span class="marquee-item">GPT-4o</span>
+                    <span class="marquee-item">Claude</span>
+                    <span class="marquee-item">LangChain</span>
+                    <span class="marquee-item">LangGraph</span>
+                    <span class="marquee-item">RAG</span>
+                    <span class="marquee-item">Milvus</span>
+                    <span class="marquee-item">FastAPI</span>
+                    <span class="marquee-item">PyTorch</span>
+                    <span class="marquee-item">CrewAI</span>
+                    <span class="marquee-item">MCP</span>
+                    <span class="marquee-item">LoRA</span>
+                    <span class="marquee-item">OpenTelemetry</span>
+                    <span class="marquee-item">ChromaDB</span>
+                    <span class="marquee-item">ClickHouse</span>
+                    <span class="marquee-item">Docker</span>
+                    <span class="marquee-item">AWS</span>
+                    <span class="marquee-item">RAGAS</span>
+                    <span class="marquee-item">Pinecone</span>
+                    <span class="marquee-item">TensorFlow</span>
+                    <span class="marquee-item">HuggingFace</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ===== ABOUT ===== -->
@@ -1128,18 +1432,10 @@
             </div>
             <div class="about-grid animate-in">
                 <div class="about-text">
-                    <p>
-                        I'm <strong>Pratik Bhande</strong>, an AI and GenAI/ML Engineer at <strong>QED42</strong>, where I build and operate production-scale AI systems used in real enterprise environments. I own the full lifecycle &mdash; from model and retrieval design to deployment, monitoring, and continuous optimisation.
-                    </p>
-                    <p>
-                        I'm the core engineer behind <strong>Aeldris</strong>, a live, production-deployed enterprise AI platform powering semantic search, conversational AI, and knowledge retrieval across large and sensitive datasets. My work spans multimodal ingestion pipelines, vector database design, embedding optimisation, enterprise-grade AI safety with guardrails, PII detection, and content filtering.
-                    </p>
-                    <p>
-                        I build high-performance AI services using <strong>FastAPI</strong>, observability-first systems with <strong>OpenTelemetry</strong> and <strong>SigNoz</strong>, and analytics pipelines using <strong>ClickHouse</strong>. Beyond production work, I explore advanced architectures including adaptive RAG with reinforcement learning, semantic video RAG, and multi-agent orchestration systems.
-                    </p>
-                    <p>
-                        I actively write technical articles, speak at conferences, and contribute to the AI engineering community. I believe the best AI engineers don't just build models &mdash; they build <strong>systems that work reliably at scale</strong>.
-                    </p>
+                    <p>I'm <strong>Pratik Bhande</strong>, an AI and GenAI/ML Engineer at <strong>QED42</strong>, where I build and operate production-scale AI systems used in real enterprise environments. I own the full lifecycle &mdash; from model and retrieval design to deployment, monitoring, and continuous optimisation.</p>
+                    <p>I'm the core engineer behind <strong>Aeldris</strong>, a live, production-deployed enterprise AI platform powering semantic search, conversational AI, and knowledge retrieval across large and sensitive datasets. My work spans multimodal ingestion pipelines, vector database design, embedding optimisation, enterprise-grade AI safety with guardrails, PII detection, and content filtering.</p>
+                    <p>I build high-performance AI services using <strong>FastAPI</strong>, observability-first systems with <strong>OpenTelemetry</strong> and <strong>SigNoz</strong>, and analytics pipelines using <strong>ClickHouse</strong>. Beyond production work, I explore advanced architectures including adaptive RAG with reinforcement learning, semantic video RAG, and multi-agent orchestration systems.</p>
+                    <p>I actively write technical articles, speak at conferences, and contribute to the AI engineering community. I believe the best AI engineers don't just build models &mdash; they build <strong>systems that work reliably at scale</strong>.</p>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight-card">
@@ -1165,7 +1461,6 @@
                 </div>
             </div>
 
-            <!-- EXPERIENCE TIMELINE -->
             <div class="section-header" style="margin-top: 4rem;">
                 <div class="section-label">// Experience</div>
                 <h2 class="section-title">Career Timeline</h2>
@@ -1175,49 +1470,41 @@
                     <div class="timeline-date">2024 &mdash; PRESENT</div>
                     <div class="timeline-company">QED42</div>
                     <div class="timeline-role">AI & GenAI/ML Engineer</div>
-                    <div class="timeline-desc">
-                        <ul>
-                            <li>Core engineer behind Aeldris &mdash; production enterprise AI platform for semantic search and conversational AI</li>
-                            <li>Designed multimodal RAG architectures for PDFs, Excel, audio, video, and web URLs at scale</li>
-                            <li>Implemented enterprise AI safety: guardrails, PII detection, content filtering, prompt validation</li>
-                            <li>Built observability systems with OpenTelemetry, SigNoz, and ClickHouse analytics pipelines</li>
-                            <li>Developed agentic AI systems with multi-agent orchestration for autonomous workflows</li>
-                        </ul>
-                    </div>
+                    <div class="timeline-desc"><ul>
+                        <li>Core engineer behind Aeldris &mdash; production enterprise AI platform for semantic search and conversational AI</li>
+                        <li>Designed multimodal RAG architectures for PDFs, Excel, audio, video, and web URLs at scale</li>
+                        <li>Implemented enterprise AI safety: guardrails, PII detection, content filtering, prompt validation</li>
+                        <li>Built observability systems with OpenTelemetry, SigNoz, and ClickHouse analytics pipelines</li>
+                        <li>Developed agentic AI systems with multi-agent orchestration for autonomous workflows</li>
+                    </ul></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2023 &mdash; 2024</div>
                     <div class="timeline-company">Shreyas Technosoft</div>
                     <div class="timeline-role">Machine Learning Engineer</div>
-                    <div class="timeline-desc">
-                        <ul>
-                            <li>Built hybrid recommendation engine improving relevance by 23%</li>
-                            <li>Developed semantic search platform achieving 97% precision</li>
-                            <li>Created conversational systems using transformer models with NL-to-SQL pipelines</li>
-                        </ul>
-                    </div>
+                    <div class="timeline-desc"><ul>
+                        <li>Built hybrid recommendation engine improving relevance by 23%</li>
+                        <li>Developed semantic search platform achieving 97% precision</li>
+                        <li>Created conversational systems using transformer models with NL-to-SQL pipelines</li>
+                    </ul></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2022 &mdash; 2023</div>
                     <div class="timeline-company">Geeky Flavours</div>
                     <div class="timeline-role">Software Developer</div>
-                    <div class="timeline-desc">
-                        <ul>
-                            <li>Full-stack development and early machine learning projects</li>
-                            <li>Built data pipelines and automation systems</li>
-                        </ul>
-                    </div>
+                    <div class="timeline-desc"><ul>
+                        <li>Full-stack development and early machine learning projects</li>
+                        <li>Built data pipelines and automation systems</li>
+                    </ul></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2021 &mdash; 2022</div>
                     <div class="timeline-company">SparkyBots</div>
                     <div class="timeline-role">Intern / Junior Developer</div>
-                    <div class="timeline-desc">
-                        <ul>
-                            <li>Early career foundation in software development and AI/ML fundamentals</li>
-                            <li>Hands-on experience with Python, data processing, and model prototyping</li>
-                        </ul>
-                    </div>
+                    <div class="timeline-desc"><ul>
+                        <li>Early career foundation in software development and AI/ML fundamentals</li>
+                        <li>Hands-on experience with Python, data processing, and model prototyping</li>
+                    </ul></div>
                 </div>
             </div>
         </div>
@@ -1231,351 +1518,161 @@
                 <h2 class="section-title">What I've Built</h2>
                 <p class="section-subtitle">Enterprise platforms, open-source tools, and research POCs.</p>
             </div>
-
             <div class="project-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="enterprise">Enterprise</button>
                 <button class="filter-btn" data-filter="opensource">Open Source</button>
                 <button class="filter-btn" data-filter="poc">POC / Research</button>
             </div>
-
             <div class="projects-grid" id="projectsGrid">
 
-                <!-- ENTERPRISE PROJECTS -->
                 <div class="project-card" data-category="enterprise">
-                    <div class="project-card-header">
-                        <span class="project-card-type enterprise">Enterprise</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type enterprise">Enterprise</span></div>
                     <h3 class="project-card-title">Aeldris AI Platform</h3>
                     <p class="project-card-desc">Production-deployed enterprise AI platform powering semantic search, conversational AI, and knowledge retrieval across large and sensitive datasets. Handles multimodal ingestion of PDFs, Excel, audio, video, and web URLs.</p>
                     <div class="project-card-impact">&#9889; Live production system serving enterprise clients with strict SLAs</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">FastAPI</span>
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">Milvus</span>
-                        <span class="project-tag">OpenTelemetry</span>
-                        <span class="project-tag">ClickHouse</span>
-                        <span class="project-tag">LangChain</span>
-                        <span class="project-tag">GPT-4o</span>
-                        <span class="project-tag">Guardrails</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">FastAPI</span><span class="project-tag">RAG</span><span class="project-tag">Milvus</span><span class="project-tag">OpenTelemetry</span><span class="project-tag">ClickHouse</span><span class="project-tag">LangChain</span><span class="project-tag">GPT-4o</span><span class="project-tag">Guardrails</span></div>
                 </div>
 
                 <div class="project-card" data-category="enterprise">
-                    <div class="project-card-header">
-                        <span class="project-card-type enterprise">Enterprise</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type enterprise">Enterprise</span></div>
                     <h3 class="project-card-title">Dynamic Agent Generation Platform</h3>
-                    <p class="project-card-desc">Platform to generate AI agents dynamically using natural language prompts. Supports modular workflows with MCP, RAG, and compliance checks. Agents can generate and orchestrate other agents, enabling a self-evolving autonomous system.</p>
+                    <p class="project-card-desc">Platform to generate AI agents dynamically using natural language prompts. Supports modular workflows with MCP, RAG, and compliance checks. Agents can generate and orchestrate other agents.</p>
                     <div class="project-card-impact">&#9889; Self-evolving multi-agent system handling complex multi-step tasks</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Agentic AI</span>
-                        <span class="project-tag">MCP</span>
-                        <span class="project-tag">LangGraph</span>
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">Multi-Agent</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">Agentic AI</span><span class="project-tag">MCP</span><span class="project-tag">LangGraph</span><span class="project-tag">RAG</span><span class="project-tag">Multi-Agent</span></div>
                 </div>
 
                 <div class="project-card" data-category="enterprise">
-                    <div class="project-card-header">
-                        <span class="project-card-type enterprise">Enterprise</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type enterprise">Enterprise</span></div>
                     <h3 class="project-card-title">CRO Optimization Engine</h3>
-                    <p class="project-card-desc">Chat-based conversion optimization system that triggers actions based on user queries and interaction patterns. Supports both rule-based and AI-driven configurations with customizable trigger points and frequency controls.</p>
+                    <p class="project-card-desc">Chat-based conversion optimization system that triggers actions based on user queries and interaction patterns. Supports both rule-based and AI-driven configurations.</p>
                     <div class="project-card-impact">&#9889; Intelligent engagement driving improved user conversion rates</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Conversational AI</span>
-                        <span class="project-tag">NLP</span>
-                        <span class="project-tag">Analytics</span>
-                        <span class="project-tag">Python</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">Conversational AI</span><span class="project-tag">NLP</span><span class="project-tag">Analytics</span><span class="project-tag">Python</span></div>
                 </div>
 
                 <div class="project-card" data-category="enterprise">
-                    <div class="project-card-header">
-                        <span class="project-card-type enterprise">Enterprise</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type enterprise">Enterprise</span></div>
                     <h3 class="project-card-title">Excel Processor</h3>
-                    <p class="project-card-desc">System to process and integrate structured Excel data into AI workflows and RAG system, indexing thousands of Excel sheets and building a complete knowledge base. Includes parsing, validation, and transformation pipelines.</p>
+                    <p class="project-card-desc">System to process and integrate structured Excel data into AI workflows and RAG system, indexing thousands of Excel sheets and building a complete knowledge base.</p>
                     <div class="project-card-impact">&#9889; 1000s of Excel sheets indexed into a searchable AI knowledge base</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">Data Processing</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Vector DB</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">RAG</span><span class="project-tag">Data Processing</span><span class="project-tag">Python</span><span class="project-tag">Vector DB</span></div>
                 </div>
 
-                <!-- OPEN SOURCE PROJECTS -->
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Smart_Semantic_Video_Rag" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                            <a href="https://youtu.be/i3pHc9dLT6c" target="_blank" class="project-card-link">Demo &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Smart_Semantic_Video_Rag" target="_blank" class="project-card-link">GitHub &nearr;</a><a href="https://youtu.be/i3pHc9dLT6c" target="_blank" class="project-card-link">Demo &nearr;</a></div></div>
                     <h3 class="project-card-title">Smart Semantic Video RAG</h3>
-                    <p class="project-card-desc">Transforms videos from unsearchable "black boxes" into interactive knowledge bases. Uses intelligent keyframe extraction, Whisper transcription, GPT-4o Vision analysis, and graph-based retrieval to pinpoint exact timestamps.</p>
+                    <p class="project-card-desc">Transforms videos from unsearchable "black boxes" into interactive knowledge bases. Uses intelligent keyframe extraction, Whisper transcription, GPT-4o Vision analysis, and graph-based retrieval.</p>
                     <div class="project-card-impact">&#9889; 81% cheaper than industry standard &mdash; $340 vs $2,700/month for 1K videos</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Whisper</span>
-                        <span class="project-tag">GPT-4o Vision</span>
-                        <span class="project-tag">ChromaDB</span>
-                        <span class="project-tag">NetworkX</span>
-                        <span class="project-tag">PageRank</span>
-                        <span class="project-tag">FastAPI</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">Whisper</span><span class="project-tag">GPT-4o Vision</span><span class="project-tag">ChromaDB</span><span class="project-tag">NetworkX</span><span class="project-tag">PageRank</span><span class="project-tag">FastAPI</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://youtu.be/TuipHF0DGDM" target="_blank" class="project-card-link">Demo &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://youtu.be/TuipHF0DGDM" target="_blank" class="project-card-link">Demo &nearr;</a></div></div>
                     <h3 class="project-card-title">Adaptive RAG with Reinforcement Learning</h3>
-                    <p class="project-card-desc">RAG system enhanced with a secondary lightweight neural network (DQN) to learn user-specific response preferences. Enables dynamic personalization &mdash; style, tone, structure &mdash; without fine-tuning the main model.</p>
+                    <p class="project-card-desc">RAG system enhanced with a secondary lightweight neural network (DQN) to learn user-specific response preferences. Enables dynamic personalization without fine-tuning.</p>
                     <div class="project-card-impact">&#9889; 70% preference alignment within 15 queries using RL-based adaptation</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">DQN</span>
-                        <span class="project-tag">Reinforcement Learning</span>
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">PyTorch</span>
-                        <span class="project-tag">Personalization</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">DQN</span><span class="project-tag">Reinforcement Learning</span><span class="project-tag">RAG</span><span class="project-tag">PyTorch</span><span class="project-tag">Personalization</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/soplex" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/soplex" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">Soplex</h3>
-                    <p class="project-card-desc">Transforms Standard Operating Procedures written in plain English into executable agent graphs. Routes conversations to LLMs, decisions to deterministic code, and API calls to function execution.</p>
+                    <p class="project-card-desc">Transforms SOPs written in plain English into executable agent graphs. Routes conversations to LLMs, decisions to deterministic code, and API calls to function execution.</p>
                     <div class="project-card-impact">&#9889; 77% cheaper than pure-LLM approaches with 99%+ branching accuracy</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Agent Graphs</span>
-                        <span class="project-tag">Multi-LLM</span>
-                        <span class="project-tag">SOP Automation</span>
-                        <span class="project-tag">Python</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">Agent Graphs</span><span class="project-tag">Multi-LLM</span><span class="project-tag">SOP Automation</span><span class="project-tag">Python</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/om-memory" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/om-memory" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">om-memory</h3>
-                    <p class="project-card-desc">Observational Memory system for AI agents that reduces API token usage without vector databases. Uses a two-agent architecture (Observer + Reflector) for intelligent conversation compression.</p>
+                    <p class="project-card-desc">Observational Memory system for AI agents that reduces API token usage without vector databases. Two-agent architecture (Observer + Reflector) for intelligent compression.</p>
                     <div class="project-card-impact">&#9889; 27% token savings with flat context growth and 100% memory accuracy</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Memory Systems</span>
-                        <span class="project-tag">Token Optimization</span>
-                        <span class="project-tag">SQLite</span>
-                        <span class="project-tag">Multi-Agent</span>
-                    </div>
+                    <div class="project-card-tags"><span class="project-tag">Memory Systems</span><span class="project-tag">Token Optimization</span><span class="project-tag">SQLite</span><span class="project-tag">Multi-Agent</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Knowledge_Transfer_Agent-" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Knowledge_Transfer_Agent-" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">Cosmobase &mdash; Codebase Intelligence</h3>
-                    <p class="project-card-desc">Deep-space themed codebase intelligence platform that analyzes GitHub repositories. Constructs an interactive "Stellar Map" of repo evolution and enables architectural queries through ORION, a specialized RAG assistant.</p>
-                    <div class="project-card-impact">&#9889; Autonomous commit analysis with D3.js visualization and real-time SSE logging</div>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Claude API</span>
-                        <span class="project-tag">ChromaDB</span>
-                        <span class="project-tag">D3.js</span>
-                        <span class="project-tag">FastAPI</span>
-                        <span class="project-tag">PyGithub</span>
-                    </div>
+                    <p class="project-card-desc">Deep-space themed codebase intelligence platform that analyzes GitHub repositories. Interactive "Stellar Map" of repo evolution with ORION RAG assistant.</p>
+                    <div class="project-card-impact">&#9889; Autonomous commit analysis with D3.js visualization and real-time SSE</div>
+                    <div class="project-card-tags"><span class="project-tag">Claude API</span><span class="project-tag">ChromaDB</span><span class="project-tag">D3.js</span><span class="project-tag">FastAPI</span><span class="project-tag">PyGithub</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Image_Adaptibility" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Image_Adaptibility" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">Image Adaptability</h3>
-                    <p class="project-card-desc">System that generates region-specific images based on country or demographic input. Enables websites to dynamically adapt visual content to match local cultures and audiences.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Image Generation</span>
-                        <span class="project-tag">Personalization</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Computer Vision</span>
-                    </div>
+                    <p class="project-card-desc">Generates region-specific images based on country or demographic input. Enables dynamic visual content adaptation for global audiences.</p>
+                    <div class="project-card-tags"><span class="project-tag">Image Generation</span><span class="project-tag">Personalization</span><span class="project-tag">Python</span><span class="project-tag">Computer Vision</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Speech-Recognition" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Speech-Recognition" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">Speaker Recognition</h3>
-                    <p class="project-card-desc">Speaker identification and verification system using voice samples. Built with audio feature extraction (MFCCs, embeddings) and similarity matching to distinguish speakers across varying audio conditions.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">MFCC</span>
-                        <span class="project-tag">Audio ML</span>
-                        <span class="project-tag">Speaker ID</span>
-                        <span class="project-tag">Python</span>
-                    </div>
+                    <p class="project-card-desc">Speaker identification and verification using voice samples. Audio feature extraction (MFCCs, embeddings) with similarity matching across varying conditions.</p>
+                    <div class="project-card-tags"><span class="project-tag">MFCC</span><span class="project-tag">Audio ML</span><span class="project-tag">Speaker ID</span><span class="project-tag">Python</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Deep-researcher" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Deep-researcher" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">Deep Researcher</h3>
-                    <p class="project-card-desc">AI-powered deep research agent that autonomously investigates topics, gathers information from multiple sources, and synthesizes comprehensive research reports.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Agentic AI</span>
-                        <span class="project-tag">Research</span>
-                        <span class="project-tag">LLM</span>
-                        <span class="project-tag">Web Search</span>
-                    </div>
+                    <p class="project-card-desc">AI-powered deep research agent that autonomously investigates topics, gathers information from multiple sources, and synthesizes comprehensive reports.</p>
+                    <div class="project-card-tags"><span class="project-tag">Agentic AI</span><span class="project-tag">Research</span><span class="project-tag">LLM</span><span class="project-tag">Web Search</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/AI-Debater-" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/AI-Debater-" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">AI Debater</h3>
-                    <p class="project-card-desc">Multi-agent debate system where AI agents argue opposing positions on any topic. Demonstrates multi-agent orchestration, structured argumentation, and LLM reasoning capabilities.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Multi-Agent</span>
-                        <span class="project-tag">Debate</span>
-                        <span class="project-tag">LLM</span>
-                        <span class="project-tag">Reasoning</span>
-                    </div>
+                    <p class="project-card-desc">Multi-agent debate system where AI agents argue opposing positions. Demonstrates multi-agent orchestration and structured argumentation.</p>
+                    <div class="project-card-tags"><span class="project-tag">Multi-Agent</span><span class="project-tag">Debate</span><span class="project-tag">LLM</span><span class="project-tag">Reasoning</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Autoresearcher" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Autoresearcher" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">AutoResearcher</h3>
-                    <p class="project-card-desc">Automated research pipeline that discovers, reads, and synthesizes academic papers and technical content. Streamlines literature review and knowledge discovery workflows.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Automation</span>
-                        <span class="project-tag">Research</span>
-                        <span class="project-tag">NLP</span>
-                        <span class="project-tag">LLM</span>
-                    </div>
+                    <p class="project-card-desc">Automated research pipeline for discovering, reading, and synthesizing academic papers and technical content.</p>
+                    <div class="project-card-tags"><span class="project-tag">Automation</span><span class="project-tag">Research</span><span class="project-tag">NLP</span><span class="project-tag">LLM</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/Ecotrace" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/Ecotrace" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">EcoTrace</h3>
-                    <p class="project-card-desc">Environmental impact tracking system using AI for carbon footprint analysis and sustainability insights. Processes environmental data to generate actionable recommendations.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Sustainability</span>
-                        <span class="project-tag">Data Analysis</span>
-                        <span class="project-tag">Python</span>
-                    </div>
+                    <p class="project-card-desc">Environmental impact tracking using AI for carbon footprint analysis and sustainability insights.</p>
+                    <div class="project-card-tags"><span class="project-tag">Sustainability</span><span class="project-tag">Data Analysis</span><span class="project-tag">Python</span></div>
                 </div>
 
                 <div class="project-card" data-category="opensource">
-                    <div class="project-card-header">
-                        <span class="project-card-type">Open Source</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/dragons-lair-defense" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type">Open Source</span><div class="project-card-links"><a href="https://github.com/pratikbhande/dragons-lair-defense" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">Dragon's Lair Defense</h3>
-                    <p class="project-card-desc">Browser-based tower defense game with procedurally-drawn sprites, 10-wave gameplay, three dragon types, and upgrade systems. Built with pure Canvas 2D API, zero dependencies.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Canvas 2D</span>
-                        <span class="project-tag">Game Dev</span>
-                        <span class="project-tag">Procedural</span>
-                    </div>
+                    <p class="project-card-desc">Browser-based tower defense game with procedurally-drawn sprites, 10 waves, three dragon types. Pure Canvas 2D, zero dependencies.</p>
+                    <div class="project-card-tags"><span class="project-tag">JavaScript</span><span class="project-tag">Canvas 2D</span><span class="project-tag">Game Dev</span><span class="project-tag">Procedural</span></div>
                 </div>
 
-                <!-- POC / RESEARCH PROJECTS -->
                 <div class="project-card" data-category="poc">
-                    <div class="project-card-header">
-                        <span class="project-card-type poc">Research</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type poc">Research</span></div>
                     <h3 class="project-card-title">Knowledge Graph + RAG</h3>
-                    <p class="project-card-desc">Explored combining knowledge graphs with RAG systems. Introduced structured entity relationships to improve retrieval accuracy and reasoning beyond traditional vector similarity.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Knowledge Graphs</span>
-                        <span class="project-tag">Neo4j</span>
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">Graph Algorithms</span>
-                    </div>
+                    <p class="project-card-desc">Combined knowledge graphs with RAG to improve retrieval accuracy through structured entity relationships beyond vector similarity.</p>
+                    <div class="project-card-tags"><span class="project-tag">Knowledge Graphs</span><span class="project-tag">Neo4j</span><span class="project-tag">RAG</span><span class="project-tag">Graph Algorithms</span></div>
                 </div>
 
                 <div class="project-card" data-category="poc">
-                    <div class="project-card-header">
-                        <span class="project-card-type poc">Research</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type poc">Research</span></div>
                     <h3 class="project-card-title">LLM Steering</h3>
-                    <p class="project-card-desc">Experimented with controlling LLM output behavior without fine-tuning by influencing the model's embedding space using example vectors. Achieved controlled response styles with minimal compute.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Embeddings</span>
-                        <span class="project-tag">LLM Control</span>
-                        <span class="project-tag">Research</span>
-                    </div>
+                    <p class="project-card-desc">Controlling LLM output behavior without fine-tuning by influencing the embedding space using example vectors. Minimal compute overhead.</p>
+                    <div class="project-card-tags"><span class="project-tag">Embeddings</span><span class="project-tag">LLM Control</span><span class="project-tag">Research</span></div>
                 </div>
 
                 <div class="project-card" data-category="poc">
-                    <div class="project-card-header">
-                        <span class="project-card-type poc">Research</span>
-                        <div class="project-card-links">
-                            <a href="https://github.com/pratikbhande/pageranker_no_vectordb" target="_blank" class="project-card-link">GitHub &nearr;</a>
-                        </div>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type poc">Research</span><div class="project-card-links"><a href="https://github.com/pratikbhande/pageranker_no_vectordb" target="_blank" class="project-card-link">GitHub &nearr;</a></div></div>
                     <h3 class="project-card-title">PageRanker Without VectorDB</h3>
-                    <p class="project-card-desc">Graph-based retrieval approach using PageRank algorithms for document ranking without relying on vector databases. Explores alternative retrieval paradigms for RAG systems.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">PageRank</span>
-                        <span class="project-tag">Graph Search</span>
-                        <span class="project-tag">Retrieval</span>
-                    </div>
+                    <p class="project-card-desc">Graph-based retrieval using PageRank for document ranking without vector databases. Alternative retrieval paradigm for RAG.</p>
+                    <div class="project-card-tags"><span class="project-tag">PageRank</span><span class="project-tag">Graph Search</span><span class="project-tag">Retrieval</span></div>
                 </div>
 
                 <div class="project-card" data-category="poc">
-                    <div class="project-card-header">
-                        <span class="project-card-type poc">Research</span>
-                    </div>
+                    <div class="project-card-header"><span class="project-card-type poc">Research</span></div>
                     <h3 class="project-card-title">TOON vs JSON Cost Optimization</h3>
-                    <p class="project-card-desc">Comparative POC evaluating TOON and JSON formats in RAG pipelines. Analyzed token usage, processing overhead, and retrieval efficiency to identify cost-saving opportunities.</p>
-                    <div class="project-card-tags">
-                        <span class="project-tag">Token Optimization</span>
-                        <span class="project-tag">Cost Analysis</span>
-                        <span class="project-tag">RAG</span>
-                    </div>
+                    <p class="project-card-desc">Comparative POC evaluating TOON and JSON formats in RAG pipelines. Token usage, processing overhead, and retrieval efficiency analysis.</p>
+                    <div class="project-card-tags"><span class="project-tag">Token Optimization</span><span class="project-tag">Cost Analysis</span><span class="project-tag">RAG</span></div>
                 </div>
 
             </div>
@@ -1590,13 +1687,12 @@
                 <h2 class="section-title">Technical Writing</h2>
                 <p class="section-subtitle">Deep dives into AI engineering, RAG systems, and production ML.</p>
             </div>
-
             <div class="blog-grid">
 
                 <a href="https://www.qed42.com/insights/building-a-video-rag-system-thats-81-cheaper-than-industry-standard-heres-how" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">MARCH 2, 2026</div>
                     <h3 class="blog-card-title">Building a Video RAG System That's 81% Cheaper Than Industry Standard</h3>
-                    <p class="blog-card-summary">How intelligent keyframe extraction with two-layer detection (text similarity + pixel change) reduces API costs from $2,700 to $340/month for processing 1,000 videos.</p>
+                    <p class="blog-card-summary">How intelligent keyframe extraction with two-layer detection reduces API costs from $2,700 to $340/month for processing 1,000 videos.</p>
                     <div class="blog-card-footer">
                         <span class="blog-card-read">Read article &rarr;</span>
                         <span style="display:flex;align-items:center"><a href="https://youtu.be/i3pHc9dLT6c" target="_blank" class="blog-card-badge" onclick="event.stopPropagation()">&#9654; Demo</a><span class="blog-card-platform">QED42</span></span>
@@ -1606,7 +1702,7 @@
                 <a href="https://www.qed42.com/insights/i-taught-a-small-ai-model-to-learn-my-style-and-you-can-too" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">DECEMBER 15, 2025</div>
                     <h3 class="blog-card-title">I Taught a Small AI Model to Learn My Style (And You Can Too)</h3>
-                    <p class="blog-card-summary">Built a reinforcement learning system to personalize small LLM outputs without fine-tuning. Individual neural networks learn user preferences, achieving 70% alignment within 15 queries.</p>
+                    <p class="blog-card-summary">Built a reinforcement learning system to personalize small LLM outputs without fine-tuning. Achieves 70% alignment within 15 queries.</p>
                     <div class="blog-card-footer">
                         <span class="blog-card-read">Read article &rarr;</span>
                         <span style="display:flex;align-items:center"><a href="https://youtu.be/TuipHF0DGDM" target="_blank" class="blog-card-badge" onclick="event.stopPropagation()">&#9654; Demo</a><span class="blog-card-platform">QED42</span></span>
@@ -1616,51 +1712,36 @@
                 <a href="https://www.qed42.com/insights/ai-guardrails-building-safe-and-reliable-llm-applications" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">NOVEMBER 11, 2025</div>
                     <h3 class="blog-card-title">AI Guardrails: Building Safe and Reliable LLM Applications</h3>
-                    <p class="blog-card-summary">Multi-layered protective mechanisms for LLMs in production: input validation, output filtering, runtime constraints to prevent hallucinations, privacy violations, and adversarial attacks.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
+                    <p class="blog-card-summary">Multi-layered protective mechanisms for LLMs in production: input validation, output filtering, runtime constraints.</p>
+                    <div class="blog-card-footer"><span class="blog-card-read">Read article &rarr;</span><span class="blog-card-platform">QED42</span></div>
                 </a>
 
                 <a href="https://www.qed42.com/insights/how-knowledge-graphs-take-rag-beyond-retrieval" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">MARCH 7, 2025</div>
                     <h3 class="blog-card-title">How Knowledge Graphs Take RAG Beyond Retrieval</h3>
-                    <p class="blog-card-summary">Exploring how Knowledge Graphs enhance RAG systems with structured entity relationships, creating more reliable, transparent, and logically sound AI responses.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
+                    <p class="blog-card-summary">Exploring how Knowledge Graphs enhance RAG with structured entity relationships for more reliable AI responses.</p>
+                    <div class="blog-card-footer"><span class="blog-card-read">Read article &rarr;</span><span class="blog-card-platform">QED42</span></div>
                 </a>
 
                 <a href="https://www.qed42.com/insights/choosing-the-right-agentic-ai-framework-smolagents-pydanticai-and-llamaindex-agentworkflows" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">FEBRUARY 24, 2025</div>
                     <h3 class="blog-card-title">Choosing the Right Agentic AI Framework: SmolAgents, PydanticAI, and LlamaIndex</h3>
-                    <p class="blog-card-summary">Comparative analysis of three major agentic AI frameworks for different use cases &mdash; from lightweight prototypes to enterprise-scale automation systems.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
+                    <p class="blog-card-summary">Comparative analysis of three major agentic AI frameworks for different use cases.</p>
+                    <div class="blog-card-footer"><span class="blog-card-read">Read article &rarr;</span><span class="blog-card-platform">QED42</span></div>
                 </a>
 
                 <a href="https://www.qed42.com/insights/how-to-run-deepseek-r1-1-5b-llm-on-android-using-termux" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">JANUARY 29, 2025</div>
                     <h3 class="blog-card-title">How to Run DeepSeek-R1:1.5B LLM on Android Using Termux</h3>
-                    <p class="blog-card-summary">Step-by-step guide to deploying DeepSeek-R1 locally on Android via Termux and Ollama. Private, offline advanced reasoning on a phone.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
+                    <p class="blog-card-summary">Step-by-step guide to deploying DeepSeek-R1 locally on Android via Termux and Ollama.</p>
+                    <div class="blog-card-footer"><span class="blog-card-read">Read article &rarr;</span><span class="blog-card-platform">QED42</span></div>
                 </a>
 
                 <a href="https://www.qed42.com/insights/simplifying-rag-evaluation-with-ragas" target="_blank" class="blog-card animate-in">
                     <div class="blog-card-date">JANUARY 27, 2025</div>
                     <h3 class="blog-card-title">Simplifying RAG Evaluation with RAGAS</h3>
-                    <p class="blog-card-summary">Deep dive into the RAGAS framework for evaluating RAG systems &mdash; measuring retrieval quality, factual grounding, and generation performance for trustworthy AI.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-read">Read article &rarr;</span>
-                        <span class="blog-card-platform">QED42</span>
-                    </div>
+                    <p class="blog-card-summary">Deep dive into the RAGAS framework for evaluating RAG systems &mdash; retrieval quality, factual grounding, generation performance.</p>
+                    <div class="blog-card-footer"><span class="blog-card-read">Read article &rarr;</span><span class="blog-card-platform">QED42</span></div>
                 </a>
 
             </div>
@@ -1675,168 +1756,18 @@
                 <h2 class="section-title">Skills & Technologies</h2>
                 <p class="section-subtitle">Tools and frameworks I use to build production AI systems.</p>
             </div>
-
             <div class="skills-grid">
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#129302;</div>
-                    <div class="skill-category-name">LLMs & GenAI</div>
-                    <div class="skill-items">
-                        <span class="skill-item">GPT-4o</span>
-                        <span class="skill-item">Claude 3.5/3.7</span>
-                        <span class="skill-item">Gemini 2.0</span>
-                        <span class="skill-item">LLaMA 3.x</span>
-                        <span class="skill-item">DeepSeek</span>
-                        <span class="skill-item">Phi-4</span>
-                        <span class="skill-item">Gemma 3</span>
-                        <span class="skill-item">Mistral</span>
-                        <span class="skill-item">Prompt Engineering</span>
-                        <span class="skill-item">Multimodal Models</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128270;</div>
-                    <div class="skill-category-name">RAG & Search</div>
-                    <div class="skill-items">
-                        <span class="skill-item">Hybrid BM25 + Vector</span>
-                        <span class="skill-item">Contextual Chunking</span>
-                        <span class="skill-item">Semantic Caching</span>
-                        <span class="skill-item">Re-ranking</span>
-                        <span class="skill-item">Pre/Post Guardrails</span>
-                        <span class="skill-item">Dynamic Thresholds</span>
-                        <span class="skill-item">Graph-based Retrieval</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#129516;</div>
-                    <div class="skill-category-name">Agentic AI</div>
-                    <div class="skill-items">
-                        <span class="skill-item">LangGraph</span>
-                        <span class="skill-item">CrewAI</span>
-                        <span class="skill-item">AutoGen</span>
-                        <span class="skill-item">MCP</span>
-                        <span class="skill-item">Tool-use Agents</span>
-                        <span class="skill-item">Multi-Agent Orchestration</span>
-                        <span class="skill-item">LangChain</span>
-                        <span class="skill-item">LlamaIndex</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128200;</div>
-                    <div class="skill-category-name">ML & Deep Learning</div>
-                    <div class="skill-items">
-                        <span class="skill-item">PyTorch</span>
-                        <span class="skill-item">TensorFlow</span>
-                        <span class="skill-item">Scikit-learn</span>
-                        <span class="skill-item">HuggingFace</span>
-                        <span class="skill-item">CNN / ANN</span>
-                        <span class="skill-item">RL (DQN/Double DQN)</span>
-                        <span class="skill-item">NLP</span>
-                        <span class="skill-item">Computer Vision</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128295;</div>
-                    <div class="skill-category-name">Fine-Tuning & MLOps</div>
-                    <div class="skill-items">
-                        <span class="skill-item">LoRA / QLoRA</span>
-                        <span class="skill-item">SFT (Unsloth)</span>
-                        <span class="skill-item">HuggingFace TRL</span>
-                        <span class="skill-item">PEFT</span>
-                        <span class="skill-item">Ollama</span>
-                        <span class="skill-item">MLflow</span>
-                        <span class="skill-item">W&B</span>
-                        <span class="skill-item">Docker</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128451;</div>
-                    <div class="skill-category-name">Vector & Databases</div>
-                    <div class="skill-items">
-                        <span class="skill-item">Milvus</span>
-                        <span class="skill-item">Pinecone</span>
-                        <span class="skill-item">ChromaDB</span>
-                        <span class="skill-item">Qdrant</span>
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">Redis</span>
-                        <span class="skill-item">ClickHouse</span>
-                        <span class="skill-item">Neo4j</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128640;</div>
-                    <div class="skill-category-name">Backend & APIs</div>
-                    <div class="skill-items">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">FastAPI</span>
-                        <span class="skill-item">Flask</span>
-                        <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">SQL</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">Streamlit</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128065;</div>
-                    <div class="skill-category-name">Observability & Monitoring</div>
-                    <div class="skill-items">
-                        <span class="skill-item">OpenTelemetry</span>
-                        <span class="skill-item">SigNoz</span>
-                        <span class="skill-item">Grafana</span>
-                        <span class="skill-item">LiteLLM</span>
-                        <span class="skill-item">ClickHouse OLAP</span>
-                        <span class="skill-item">Prometheus</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128202;</div>
-                    <div class="skill-category-name">LLM Evaluation</div>
-                    <div class="skill-items">
-                        <span class="skill-item">RAGAS</span>
-                        <span class="skill-item">DeepEval</span>
-                        <span class="skill-item">TruLens</span>
-                        <span class="skill-item">Arize Phoenix</span>
-                        <span class="skill-item">PromptFoo</span>
-                        <span class="skill-item">LangSmith</span>
-                        <span class="skill-item">Giskard</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#9729;</div>
-                    <div class="skill-category-name">Cloud & Infrastructure</div>
-                    <div class="skill-items">
-                        <span class="skill-item">AWS</span>
-                        <span class="skill-item">Azure</span>
-                        <span class="skill-item">GCP</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">Kubernetes</span>
-                        <span class="skill-item">CI/CD</span>
-                        <span class="skill-item">Git</span>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-in">
-                    <div class="skill-category-icon">&#128187;</div>
-                    <div class="skill-category-name">AI Dev Tools</div>
-                    <div class="skill-items">
-                        <span class="skill-item">Claude Code</span>
-                        <span class="skill-item">Cursor</span>
-                        <span class="skill-item">GitHub Copilot</span>
-                        <span class="skill-item">Windsurf</span>
-                        <span class="skill-item">Cline</span>
-                        <span class="skill-item">Codex</span>
-                        <span class="skill-item">Antigravity</span>
-                    </div>
-                </div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#129302;</div><div class="skill-category-name">LLMs & GenAI</div><div class="skill-items"><span class="skill-item">GPT-4o</span><span class="skill-item">Claude 3.5/3.7</span><span class="skill-item">Gemini 2.0</span><span class="skill-item">LLaMA 3.x</span><span class="skill-item">DeepSeek</span><span class="skill-item">Phi-4</span><span class="skill-item">Gemma 3</span><span class="skill-item">Mistral</span><span class="skill-item">Prompt Engineering</span><span class="skill-item">Multimodal Models</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128270;</div><div class="skill-category-name">RAG & Search</div><div class="skill-items"><span class="skill-item">Hybrid BM25 + Vector</span><span class="skill-item">Contextual Chunking</span><span class="skill-item">Semantic Caching</span><span class="skill-item">Re-ranking</span><span class="skill-item">Pre/Post Guardrails</span><span class="skill-item">Dynamic Thresholds</span><span class="skill-item">Graph-based Retrieval</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#129516;</div><div class="skill-category-name">Agentic AI</div><div class="skill-items"><span class="skill-item">LangGraph</span><span class="skill-item">CrewAI</span><span class="skill-item">AutoGen</span><span class="skill-item">MCP</span><span class="skill-item">Tool-use Agents</span><span class="skill-item">Multi-Agent Orchestration</span><span class="skill-item">LangChain</span><span class="skill-item">LlamaIndex</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128200;</div><div class="skill-category-name">ML & Deep Learning</div><div class="skill-items"><span class="skill-item">PyTorch</span><span class="skill-item">TensorFlow</span><span class="skill-item">Scikit-learn</span><span class="skill-item">HuggingFace</span><span class="skill-item">CNN / ANN</span><span class="skill-item">RL (DQN/Double DQN)</span><span class="skill-item">NLP</span><span class="skill-item">Computer Vision</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128295;</div><div class="skill-category-name">Fine-Tuning & MLOps</div><div class="skill-items"><span class="skill-item">LoRA / QLoRA</span><span class="skill-item">SFT (Unsloth)</span><span class="skill-item">HuggingFace TRL</span><span class="skill-item">PEFT</span><span class="skill-item">Ollama</span><span class="skill-item">MLflow</span><span class="skill-item">W&B</span><span class="skill-item">Docker</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128451;</div><div class="skill-category-name">Vector & Databases</div><div class="skill-items"><span class="skill-item">Milvus</span><span class="skill-item">Pinecone</span><span class="skill-item">ChromaDB</span><span class="skill-item">Qdrant</span><span class="skill-item">PostgreSQL</span><span class="skill-item">MongoDB</span><span class="skill-item">Redis</span><span class="skill-item">ClickHouse</span><span class="skill-item">Neo4j</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128640;</div><div class="skill-category-name">Backend & APIs</div><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">FastAPI</span><span class="skill-item">Flask</span><span class="skill-item">REST APIs</span><span class="skill-item">SQL</span><span class="skill-item">JavaScript</span><span class="skill-item">Streamlit</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128065;</div><div class="skill-category-name">Observability & Monitoring</div><div class="skill-items"><span class="skill-item">OpenTelemetry</span><span class="skill-item">SigNoz</span><span class="skill-item">Grafana</span><span class="skill-item">LiteLLM</span><span class="skill-item">ClickHouse OLAP</span><span class="skill-item">Prometheus</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128202;</div><div class="skill-category-name">LLM Evaluation</div><div class="skill-items"><span class="skill-item">RAGAS</span><span class="skill-item">DeepEval</span><span class="skill-item">TruLens</span><span class="skill-item">Arize Phoenix</span><span class="skill-item">PromptFoo</span><span class="skill-item">LangSmith</span><span class="skill-item">Giskard</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#9729;</div><div class="skill-category-name">Cloud & Infrastructure</div><div class="skill-items"><span class="skill-item">AWS</span><span class="skill-item">Azure</span><span class="skill-item">GCP</span><span class="skill-item">Docker</span><span class="skill-item">Kubernetes</span><span class="skill-item">CI/CD</span><span class="skill-item">Git</span></div></div>
+                <div class="skill-category animate-in"><div class="skill-category-icon">&#128187;</div><div class="skill-category-name">AI Dev Tools</div><div class="skill-items"><span class="skill-item">Claude Code</span><span class="skill-item">Cursor</span><span class="skill-item">GitHub Copilot</span><span class="skill-item">Windsurf</span><span class="skill-item">Cline</span><span class="skill-item">Codex</span><span class="skill-item">Antigravity</span></div></div>
             </div>
         </div>
     </div>
@@ -1847,45 +1778,23 @@
             <div class="contact-grid">
                 <div class="contact-text">
                     <h2>Let's Build Something Together</h2>
-                    <p>
-                        I'm interested in AI engineering roles where systems are expected to perform reliably in production and deliver measurable business impact. Whether you're building the next AI platform or need someone who can take an idea from prototype to production &mdash; let's talk.
-                    </p>
+                    <p>I'm interested in AI engineering roles where systems are expected to perform reliably in production and deliver measurable business impact. Whether you're building the next AI platform or need someone who can take an idea from prototype to production &mdash; let's talk.</p>
                     <div class="contact-links">
                         <a href="https://linkedin.com/in/pratik-bhande-2760b1284" target="_blank" class="contact-link">
-                            <div class="contact-link-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-link-label">LinkedIn</div>
-                                <div class="contact-link-value">Pratik Bhande</div>
-                            </div>
+                            <div class="contact-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                            <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">Pratik Bhande</div></div>
                         </a>
                         <a href="https://github.com/pratikbhande" target="_blank" class="contact-link">
-                            <div class="contact-link-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-link-label">GitHub</div>
-                                <div class="contact-link-value">pratikbhande</div>
-                            </div>
-                        </a>
-                        <a href="https://docs.google.com/document/d/1_lsF1R2UDZMRa3yHPp8YmtWqAKs8WuAA/edit?usp=sharing&ouid=108870295644104007918&rtpof=true&sd=true" target="_blank" class="contact-link">
-                            <div class="contact-link-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V2l6 6h-6zM16 13H8v-1h8v1zm0 3H8v-1h8v1zm-3 3H8v-1h5v1z"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-link-label">Resume</div>
-                                <div class="contact-link-value">Download / View Resume</div>
-                            </div>
+                            <div class="contact-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+                            <div><div class="contact-link-label">GitHub</div><div class="contact-link-value">pratikbhande</div></div>
                         </a>
                         <a href="mailto:pratikbhande2@gmail.com" class="contact-link">
-                            <div class="contact-link-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-link-label">Email</div>
-                                <div class="contact-link-value">Get in Touch</div>
-                            </div>
+                            <div class="contact-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                            <div><div class="contact-link-label">Email</div><div class="contact-link-value">pratikbhande2@gmail.com</div></div>
+                        </a>
+                        <a href="https://docs.google.com/document/d/1_lsF1R2UDZMRa3yHPp8YmtWqAKs8WuAA/edit?usp=sharing&ouid=108870295644104007918&rtpof=true&sd=true" target="_blank" class="contact-link">
+                            <div class="contact-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V2l6 6h-6zM16 13H8v-1h8v1zm0 3H8v-1h8v1zm-3 3H8v-1h5v1z"/></svg></div>
+                            <div><div class="contact-link-label">Resume</div><div class="contact-link-value">Download / View Resume</div></div>
                         </a>
                     </div>
                 </div>
@@ -1915,7 +1824,7 @@
                         <div class="terminal-line"><span class="output">&nbsp;&nbsp;"status": "<span class="success">open_to_opportunities</span>"</span></div>
                         <div class="terminal-line"><span class="output">}</span></div>
                         <br>
-                        <div class="terminal-line"><span class="prompt">$ </span><span class="command">echo "Let's build the future of AI" <span class="cursor" style="animation: blink 1s infinite; display: inline-block; width: 8px; height: 14px; background: var(--accent);"></span></span></div>
+                        <div class="terminal-line"><span class="prompt">$ </span><span class="command">echo "Let's build the future of AI"</span></div>
                     </div>
                 </div>
             </div>
@@ -1929,7 +1838,6 @@
 </footer>
 
 <script>
-// ===== NEURAL NETWORK CANVAS =====
 const canvas = document.getElementById('neural-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -1938,10 +1846,7 @@ const PARTICLE_COUNT = 80;
 const CONNECTION_DISTANCE = 180;
 const MOUSE_RADIUS = 200;
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 
 class Particle {
     constructor() {
@@ -1952,118 +1857,57 @@ class Particle {
         this.radius = Math.random() * 2 + 1;
         this.opacity = Math.random() * 0.5 + 0.2;
     }
-
     update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
+        this.x += this.vx; this.y += this.vy;
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
+        const dx = mouse.x - this.x, dy = mouse.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MOUSE_RADIUS) {
-            const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS * 0.02;
-            this.vx += dx * force;
-            this.vy += dy * force;
-        }
-
+        if (dist < MOUSE_RADIUS) { const f = (MOUSE_RADIUS - dist) / MOUSE_RADIUS * 0.02; this.vx += dx * f; this.vy += dy * f; }
         const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-        if (speed > 1.5) {
-            this.vx *= 0.98;
-            this.vy *= 0.98;
-        }
+        if (speed > 1.5) { this.vx *= 0.98; this.vy *= 0.98; }
     }
-
     draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity * 0.15})`;
-        ctx.fill();
+        ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`; ctx.fill();
+        ctx.beginPath(); ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity * 0.15})`; ctx.fill();
     }
 }
 
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(new Particle());
-    }
-}
+function initParticles() { particles = []; for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle()); }
 
 function drawConnections() {
     for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
+            const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-
             if (dist < CONNECTION_DISTANCE) {
-                const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.15;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / CONNECTION_DISTANCE) * 0.15})`; ctx.lineWidth = 0.5; ctx.stroke();
             }
         }
     }
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawConnections();
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-    requestAnimationFrame(animate);
-}
+function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); drawConnections(); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 
-window.addEventListener('resize', () => {
-    resizeCanvas();
-    initParticles();
-});
+window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+document.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+resizeCanvas(); initParticles(); animate();
 
-document.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-});
-
-resizeCanvas();
-initParticles();
-animate();
-
-// ===== TAB NAVIGATION =====
 function switchTab(tabName) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-
     document.getElementById('tab-' + tabName).classList.add('active');
     document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-
     document.getElementById('navTabs').classList.remove('open');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // trigger animations
-    setTimeout(() => {
-        document.querySelectorAll('#tab-' + tabName + ' .animate-in').forEach(el => {
-            el.classList.add('visible');
-        });
-    }, 100);
+    setTimeout(() => { document.querySelectorAll('#tab-' + tabName + ' .animate-in').forEach(el => el.classList.add('visible')); }, 100);
 }
 
-document.querySelectorAll('.nav-tab').forEach(tab => {
-    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
-});
+document.querySelectorAll('.nav-tab').forEach(tab => { tab.addEventListener('click', () => switchTab(tab.dataset.tab)); });
 
-// ===== TYPEWRITER =====
 const phrases = [
     'Building production RAG systems at scale',
     'Designing agentic AI architectures',
@@ -2072,62 +1916,32 @@ const phrases = [
     'Making LLMs reliable, observable, and cost-efficient',
     '81% cheaper Video RAG. 97% search precision.',
 ];
-
 let phraseIdx = 0, charIdx = 0, isDeleting = false;
 const typeEl = document.getElementById('typewriter-text');
-
 function typewrite() {
     const current = phrases[phraseIdx];
-    typeEl.textContent = isDeleting
-        ? current.substring(0, charIdx--)
-        : current.substring(0, charIdx++);
-
+    typeEl.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
     let delay = isDeleting ? 30 : 50;
-
-    if (!isDeleting && charIdx > current.length) {
-        delay = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIdx < 0) {
-        isDeleting = false;
-        phraseIdx = (phraseIdx + 1) % phrases.length;
-        delay = 300;
-    }
-
+    if (!isDeleting && charIdx > current.length) { delay = 2000; isDeleting = true; }
+    else if (isDeleting && charIdx < 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; delay = 300; }
     setTimeout(typewrite, delay);
 }
-
 typewrite();
 
-// ===== PROJECT FILTERS =====
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         const filter = btn.dataset.filter;
         document.querySelectorAll('.project-card').forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeIn 0.4s ease';
-            } else {
-                card.style.display = 'none';
-            }
+            if (filter === 'all' || card.dataset.category === filter) { card.style.display = 'block'; card.style.animation = 'fadeIn 0.4s ease'; }
+            else { card.style.display = 'none'; }
         });
     });
 });
 
-// ===== SCROLL ANIMATIONS =====
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.1 });
-
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
-
-// trigger home animations immediately
 document.querySelectorAll('#tab-home .animate-in').forEach(el => el.classList.add('visible'));
 </script>
 
